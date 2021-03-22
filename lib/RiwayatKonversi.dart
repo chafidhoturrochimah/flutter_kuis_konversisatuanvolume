@@ -18,7 +18,7 @@ class RiwayatKonversi extends StatelessWidget {
             child: Text(
               value, 
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 12,
                 fontFamily: 'Candara',
               ),
             ),

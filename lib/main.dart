@@ -143,37 +143,15 @@ class _MyAppState extends State<MyApp> {
         _result = _inputUser / 10;
       else if (_newValueNaik == "Ml" && _newValueTurun == "Ml")
         _result = _inputUser;
-      //listViewItem.add("$_newValue : $_result");
+      listViewItem.add("$_newValueNaik ke $_newValueTurun = $_result");
     });
   }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    TabBar myTabBar = TabBar(
-      indicator: BoxDecoration(
-          gradient: LinearGradient(
-              colors: [Color(0xff0096ff), Color(0xff6610f2)],
-              begin: FractionalOffset.topCenter,
-              end: FractionalOffset.bottomCenter),
-          border:
-              Border(bottom: BorderSide(color: Colors.blue[300], width: 5))),
-      tabs: <Widget>[
-        Tab(
-          icon: Icon(Icons.repeat, color: Colors.white),
-          text: "Konversi",
-        ),
-        Tab(
-          icon: Icon(Icons.history, color: Colors.white),
-          text: "History",
-        )
-      ],
-    );
-
     return MaterialApp(
-      home: DefaultTabController(
-        length: 2,
-        child: Scaffold(
+      home: Scaffold(
           appBar: AppBar(
             title: Text(
               "Satuan Volume",
@@ -189,107 +167,114 @@ class _MyAppState extends State<MyApp> {
                       begin: FractionalOffset.bottomLeft,
                       end: FractionalOffset.topRight)),
             ),
-            bottom: PreferredSize(
-                preferredSize: Size.fromHeight(myTabBar.preferredSize.height),
-                child: Container(color: Colors.blue[300], child: myTabBar)),
           ),
 
-          body: TabBarView(
-            children: <Widget>[
-              //konversi
-              Container(
-                margin: EdgeInsets.all(5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget> [
-                            //pilih
-                            Container(                           
-                              child: DropdownButton(
-                                hint: Text(
-                                  "Pilih Satuan Volume",
+          body: Container(
+            margin: EdgeInsets.all(5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget> [
+                        //pilih
+                        Container(                           
+                          child: DropdownButton(
+                            hint: Text(
+                              "Pilih Satuan Volume",
+                              style: TextStyle(
+                                fontFamily: 'Candara',
+                              ),
+                            ),
+                            value: _newValueNaik,
+                            items: listNaik.map((value) {
+                              return DropdownMenuItem(
+                                child: Text(
+                                  value,
                                   style: TextStyle(
                                     fontFamily: 'Candara',
                                   ),
                                 ),
-                                value: _newValueNaik,
-                                items: listNaik.map((value) {
-                                  return DropdownMenuItem(
-                                    child: Text(
-                                      value,
-                                      style: TextStyle(
-                                        fontFamily: 'Candara',
-                                      ),
-                                    ),
-                                    value: value,
-                                  );
-                                }).toList(),
-                                onChanged: (String changeValue) {
-                                  setState(() {
-                                    _newValueNaik = changeValue;
-                                  });
-                                },
-                              ),
-                              
-                            ),
-
-                            Center(child: Icon(Icons.repeat)),
-
-                            Container(
-                              child: DropdownButton(
-                                hint: Text(
-                                  "Pilih Satuan Volume",
-                                  style: TextStyle(
-                                    fontFamily: 'Candara',
-                                  ),
-                                ),
-                                value: _newValueTurun,
-                                items: listTurun.map((value) {
-                                  return DropdownMenuItem(
-                                    child: Text(
-                                      value,
-                                      style: TextStyle(
-                                        fontFamily: 'Candara',
-                                      ),
-                                    ),
-                                    value: value,
-                                  );
-                                }).toList(),
-                                onChanged: (String changeValue) {
-                                  setState(() {
-                                    _newValueTurun = changeValue;
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
+                                value: value,
+                              );
+                              }).toList(),
+                              onChanged: (String changeValue) {
+                                setState(() {
+                                  _newValueNaik = changeValue;
+                                });
+                              },
+                          ),
                         ),
-                      ),
 
-                      //input
-                      Input(inputController: inputController),
+                        Center(child: Icon(Icons.repeat)),
 
-                      //hasil
-                      Result(result: _result,),
+                        Container(
+                          child: DropdownButton(
+                            hint: Text(
+                              "Pilih Satuan Volume",
+                              style: TextStyle(
+                                fontFamily: 'Candara',
+                              ),
+                            ),
+                            value: _newValueTurun,
+                            items: listTurun.map((value) {
+                              return DropdownMenuItem(
+                                child: Text(
+                                  value,
+                                  style: TextStyle(
+                                    fontFamily: 'Candara',
+                                  ),
+                                ),
+                                value: value,
+                              );
+                            }).toList(),
+                            onChanged: (String changeValue) {
+                              setState(() {
+                                _newValueTurun = changeValue;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                ),
+
+                //input
+                Input(
+                  inputController: inputController
+                ),
+
+                //hasil
+                Result(
+                  result: _result,
+                ),
     
-                      //button
-                      Convert(
-                        konvertHandler: konversiVolume,
-                      ),
-                    ],
-                  )),
-            
-              //history
-              RiwayatKonversi(listViewItem: listViewItem),
-            ],
-          ),
-        ),
+                //button
+                Convert(
+                  konvertHandler: konversiVolume,
+                ),
+                      
+                //riwayat
+                Container(
+                  margin: EdgeInsets.all(8),
+                  child: Text(
+                    'Riwayat Konversi',
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'CandaraBold'
+                    ),
+                  ),
+                ),
+                RiwayatKonversi(
+                  listViewItem: listViewItem
+                ),
+              ],
+            )
+          ),    
       ),
-    );
+    );  
   }
 }

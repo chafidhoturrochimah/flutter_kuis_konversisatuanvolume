@@ -20,16 +20,16 @@ class Result extends StatelessWidget {
             child: Text(
               "Hasil",
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 20,
                 fontFamily: 'CandaraBold',
               ),
             ),
           ),
           Center(
             child: Text(
-              result.toStringAsFixed(1),
+              result.toString(),
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 30,
                 fontFamily: 'CandaraBold',
               ),
             ),
