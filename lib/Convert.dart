@@ -43,9 +43,7 @@ class Convert extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0)
           ),
-          onPressed: () {
-            
-          },
+          onPressed: konvertHandler,
         ),
       ),
     );

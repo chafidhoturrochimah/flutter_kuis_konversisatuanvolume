@@ -50,15 +50,15 @@ class _MyAppState extends State<MyApp> {
       else if (_newValueNaik == "Kl" && _newValueTurun == "Hl")
         _result = _inputUser * 10 ;
       else if (_newValueNaik == "Kl" && _newValueTurun == "Dal")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 100 ;
       else if (_newValueNaik == "Kl" && _newValueTurun == "L")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 1000 ;
       else if (_newValueNaik == "Kl" && _newValueTurun == "Dl")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 10000 ;
       else if (_newValueNaik == "Kl" && _newValueTurun == "Cl")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 100000 ;
       else if (_newValueNaik == "Kl" && _newValueTurun == "Ml")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 1000000 ;
       else if (_newValueNaik == "Hl" && _newValueTurun == "Kl")
         _result = _inputUser / 10 ;
       else if (_newValueNaik == "Hl" && _newValueTurun == "Hl")
@@ -66,15 +66,15 @@ class _MyAppState extends State<MyApp> {
       else if (_newValueNaik == "Hl" && _newValueTurun == "Dal")
         _result = _inputUser * 10 ;
       else if (_newValueNaik == "Hl" && _newValueTurun == "L")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 100 ;
       else if (_newValueNaik == "Hl" && _newValueTurun == "Dl")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 1000 ;
       else if (_newValueNaik == "Hl" && _newValueTurun == "Cl")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 10000 ;
       else if (_newValueNaik == "Hl" && _newValueTurun == "Ml")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 100000 ;
       else if (_newValueNaik == "Dal" && _newValueTurun == "Kl")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 100 ;
       else if (_newValueNaik == "Dal" && _newValueTurun == "Hl")
         _result = _inputUser / 10 ;
       else if (_newValueNaik == "Dal" && _newValueTurun == "Dal")
@@ -82,15 +82,15 @@ class _MyAppState extends State<MyApp> {
       else if (_newValueNaik == "Dal" && _newValueTurun == "L")
         _result = _inputUser * 10 ;
       else if (_newValueNaik == "Dal" && _newValueTurun == "Dl")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 100 ;
       else if (_newValueNaik == "Dal" && _newValueTurun == "Cl")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 1000 ;
       else if (_newValueNaik == "Dal" && _newValueTurun == "Ml")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 10000 ;
       else if (_newValueNaik == "L" && _newValueTurun == "Kl")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 1000 ;
       else if (_newValueNaik == "L" && _newValueTurun == "Hl")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 100 ;
       else if (_newValueNaik == "L" && _newValueTurun == "Dal")
         _result = _inputUser / 10 ;
       else if (_newValueNaik == "L" && _newValueTurun == "L")
@@ -98,15 +98,15 @@ class _MyAppState extends State<MyApp> {
       else if (_newValueNaik == "L" && _newValueTurun == "Dl")
         _result = _inputUser * 10 ;
       else if (_newValueNaik == "L" && _newValueTurun == "Cl")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 100 ;
       else if (_newValueNaik == "L" && _newValueTurun == "Ml")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 1000 ;
       else if (_newValueNaik == "Dl" && _newValueTurun == "Kl")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 10000 ;
       else if (_newValueNaik == "Dl" && _newValueTurun == "Hl")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 1000 ;
       else if (_newValueNaik == "Dl" && _newValueTurun == "Dal")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 100 ;
       else if (_newValueNaik == "Dl" && _newValueTurun == "L")
         _result = _inputUser / 10;
       else if (_newValueNaik == "Dl" && _newValueTurun == "Dl")
@@ -114,15 +114,15 @@ class _MyAppState extends State<MyApp> {
       else if (_newValueNaik == "Dl" && _newValueTurun == "Cl")
         _result = _inputUser * 10 ;
       else if (_newValueNaik == "Dl" && _newValueTurun == "Ml")
-        _result = _inputUser * 10 ;
+        _result = _inputUser * 100 ;
       else if (_newValueNaik == "Cl" && _newValueTurun == "Kl")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 100000 ;
       else if (_newValueNaik == "Cl" && _newValueTurun == "Hl")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 10000 ;
       else if (_newValueNaik == "Cl" && _newValueTurun == "Dal")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 1000 ;
       else if (_newValueNaik == "Cl" && _newValueTurun == "L")
-        _result = _inputUser / 10;
+        _result = _inputUser / 100;
       else if (_newValueNaik == "Cl" && _newValueTurun == "Dl")
         _result = _inputUser / 10;
       else if (_newValueNaik == "Cl" && _newValueTurun == "Cl")
@@ -130,15 +130,15 @@ class _MyAppState extends State<MyApp> {
       else if (_newValueNaik == "Cl" && _newValueTurun == "Ml")
         _result = _inputUser * 10 ;
       else if (_newValueNaik == "Ml" && _newValueTurun == "Kl")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 1000000 ;
       else if (_newValueNaik == "Ml" && _newValueTurun == "Hl")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 100000 ;
       else if (_newValueNaik == "Ml" && _newValueTurun == "Dal")
-        _result = _inputUser / 10 ;
+        _result = _inputUser / 10000 ;
       else if (_newValueNaik == "Ml" && _newValueTurun == "L")
-        _result = _inputUser / 10;
+        _result = _inputUser / 1000;
       else if (_newValueNaik == "Ml" && _newValueTurun == "Dl")
-        _result = _inputUser / 10;
+        _result = _inputUser / 100;
       else if (_newValueNaik == "Ml" && _newValueTurun == "Cl")
         _result = _inputUser / 10;
       else if (_newValueNaik == "Ml" && _newValueTurun == "Ml")
@@ -284,7 +284,6 @@ class _MyAppState extends State<MyApp> {
                     ],
                   )),
             
-
               //history
               RiwayatKonversi(listViewItem: listViewItem),
             ],
