@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'Convert.dart';
+import 'Input.dart';
+import 'Result.dart';
+import 'RiwayatKonversi.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,16 +19,22 @@ class _MyAppState extends State<MyApp> {
 
   //variabel berubah
   double _inputUser = 0;
-  double _kiloliter = 0;
-  double _liter = 0;
-  double _mililiter = 0;
+  double _kl = 0;
+  double _hl = 0;
+  double _dal = 0;
+  double _l = 0;
+  double _dl = 0;
+  double _cl = 0;
+  double _ml = 0;
 
   //mengeset nilai pada dropdown
-  String _newValue = "Kiloliter";
+  String _newValueNaik;
+  String _newValueTurun;
   double _result = 0;
 
   //buat list
-  var listItem = {"Kiloliter", "Liter", "Mililiter"};
+  var listNaik = {"Kl", "Hl", "Dal","L", "Dl", "Cl","Ml"};
+  var listTurun = {"Kl", "Hl", "Dal","L", "Dl", "Cl","Ml"};
 
   //variable bertipe List<String> (prak 2)
   // ignore: deprecated_member_use
@@ -36,11 +45,105 @@ class _MyAppState extends State<MyApp> {
   void konversiVolume() {
     setState(() {
       _inputUser = double.parse(inputController.text);
-      if (_newValue == "Kiloliter")
-        _result = _inputUser + 273;
-      else
-        _result = (4 / 5) * _inputUser;
-      listViewItem.add("$_newValue : $_result");
+      if (_newValueNaik == "Kl" && _newValueTurun == "Kl")
+        _result = _inputUser;
+      else if (_newValueNaik == "Kl" && _newValueTurun == "Hl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Kl" && _newValueTurun == "Dal")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Kl" && _newValueTurun == "L")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Kl" && _newValueTurun == "Dl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Kl" && _newValueTurun == "Cl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Kl" && _newValueTurun == "Ml")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Hl" && _newValueTurun == "Kl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Hl" && _newValueTurun == "Hl")
+        _result = _inputUser;
+      else if (_newValueNaik == "Hl" && _newValueTurun == "Dal")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Hl" && _newValueTurun == "L")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Hl" && _newValueTurun == "Dl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Hl" && _newValueTurun == "Cl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Hl" && _newValueTurun == "Ml")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Dal" && _newValueTurun == "Kl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Dal" && _newValueTurun == "Hl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Dal" && _newValueTurun == "Dal")
+        _result = _inputUser;
+      else if (_newValueNaik == "Dal" && _newValueTurun == "L")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Dal" && _newValueTurun == "Dl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Dal" && _newValueTurun == "Cl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Dal" && _newValueTurun == "Ml")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "L" && _newValueTurun == "Kl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "L" && _newValueTurun == "Hl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "L" && _newValueTurun == "Dal")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "L" && _newValueTurun == "L")
+        _result = _inputUser;
+      else if (_newValueNaik == "L" && _newValueTurun == "Dl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "L" && _newValueTurun == "Cl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "L" && _newValueTurun == "Ml")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Dl" && _newValueTurun == "Kl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Dl" && _newValueTurun == "Hl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Dl" && _newValueTurun == "Dal")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Dl" && _newValueTurun == "L")
+        _result = _inputUser / 10;
+      else if (_newValueNaik == "Dl" && _newValueTurun == "Dl")
+        _result = _inputUser;
+      else if (_newValueNaik == "Dl" && _newValueTurun == "Cl")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Dl" && _newValueTurun == "Ml")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Cl" && _newValueTurun == "Kl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Cl" && _newValueTurun == "Hl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Cl" && _newValueTurun == "Dal")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Cl" && _newValueTurun == "L")
+        _result = _inputUser / 10;
+      else if (_newValueNaik == "Cl" && _newValueTurun == "Dl")
+        _result = _inputUser / 10;
+      else if (_newValueNaik == "Cl" && _newValueTurun == "Cl")
+        _result = _inputUser;
+      else if (_newValueNaik == "Cl" && _newValueTurun == "Ml")
+        _result = _inputUser * 10 ;
+      else if (_newValueNaik == "Ml" && _newValueTurun == "Kl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Ml" && _newValueTurun == "Hl")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Ml" && _newValueTurun == "Dal")
+        _result = _inputUser / 10 ;
+      else if (_newValueNaik == "Ml" && _newValueTurun == "L")
+        _result = _inputUser / 10;
+      else if (_newValueNaik == "Ml" && _newValueTurun == "Dl")
+        _result = _inputUser / 10;
+      else if (_newValueNaik == "Ml" && _newValueTurun == "Cl")
+        _result = _inputUser / 10;
+      else if (_newValueNaik == "Ml" && _newValueTurun == "Ml")
+        _result = _inputUser;
+      //listViewItem.add("$_newValue : $_result");
     });
   }
 
@@ -73,8 +176,11 @@ class _MyAppState extends State<MyApp> {
         child: Scaffold(
           appBar: AppBar(
             title: Text(
-              "Konversi Satuan Volume",
-              style: TextStyle(color: Colors.white),
+              "Satuan Volume",
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'CandaraBold',
+              ),
             ),
             flexibleSpace: Container(
               decoration: BoxDecoration(
@@ -87,108 +193,104 @@ class _MyAppState extends State<MyApp> {
                 preferredSize: Size.fromHeight(myTabBar.preferredSize.height),
                 child: Container(color: Colors.blue[300], child: myTabBar)),
           ),
+
           body: TabBarView(
             children: <Widget>[
               //konversi
               Container(
-                  margin: EdgeInsets.all(5),
+                margin: EdgeInsets.all(5),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      DropdownButton<String>(
-                        items: listItem.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        value: _newValue,
-                        onChanged: dropdownOnChanged,
-                        isExpanded: true,
-                      ),
-                      Center(
-                        child: Icon(Icons.repeat),
-                      ),
-
-                      DropdownButton<String>(
-                        items: listItem.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        value: _newValue,
-                        onChanged: dropdownOnChanged,
-                        isExpanded: true,
-                      ),
-
                       Container(
-                          child: TextFormField(
-                          decoration:
-                            InputDecoration(hintText: "Masukkan Angka Volume"),
-                          inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly
-                        ] ,
-                        controller: inputController,
-                        keyboardType: TextInputType.number,
-                      )),
-
-                      Center(
-                        child: Container(
-                          width: 900.0,
-                          height: 400.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30.0),
-                          gradient: LinearGradient(
-                            // Where the linear gradient begins and ends
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                            // Add one stop for each color. Stops should increase from 0 to 1
-                            stops: [0.1, 0.9],
-                            colors: [
-                              // Colors are easy thanks to Flutter's Colors class.
-                              Color(0xff1d83ab),
-                              Color(0xff0cbab8),
-                            ],
-                          ),
-                        ),
-                        // ignore: deprecated_member_use
-                        child: FlatButton(
-                          child: Text(
-                            'Konversi',
-                            style: TextStyle(
-                              fontSize: 12.0,
-                              fontFamily: 'Righteous',
-                              fontWeight: FontWeight.w600,
+                        margin: EdgeInsets.all(8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget> [
+                            //pilih
+                            Container(                           
+                              child: DropdownButton(
+                                hint: Text(
+                                  "Pilih Satuan Volume",
+                                  style: TextStyle(
+                                    fontFamily: 'Candara',
+                                  ),
+                                ),
+                                value: _newValueNaik,
+                                items: listNaik.map((value) {
+                                  return DropdownMenuItem(
+                                    child: Text(
+                                      value,
+                                      style: TextStyle(
+                                        fontFamily: 'Candara',
+                                      ),
+                                    ),
+                                    value: value,
+                                  );
+                                }).toList(),
+                                onChanged: (String changeValue) {
+                                  setState(() {
+                                    _newValueNaik = changeValue;
+                                  });
+                                },
+                              ),
+                              
                             ),
-                          ),
-                          textColor: Colors.white,
-                          color: Colors.transparent,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0)),
-                          onPressed: () {},
+
+                            Center(child: Icon(Icons.repeat)),
+
+                            Container(
+                              child: DropdownButton(
+                                hint: Text(
+                                  "Pilih Satuan Volume",
+                                  style: TextStyle(
+                                    fontFamily: 'Candara',
+                                  ),
+                                ),
+                                value: _newValueTurun,
+                                items: listTurun.map((value) {
+                                  return DropdownMenuItem(
+                                    child: Text(
+                                      value,
+                                      style: TextStyle(
+                                        fontFamily: 'Candara',
+                                      ),
+                                    ),
+                                    value: value,
+                                  );
+                                }).toList(),
+                                onChanged: (String changeValue) {
+                                  setState(() {
+                                    _newValueTurun = changeValue;
+                                  });
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      )],
+
+                      //input
+                      Input(inputController: inputController),
+
+                      //hasil
+                      Result(result: _result,),
+    
+                      //button
+                      Convert(
+                        konvertHandler: konversiVolume,
+                      ),
+                    ],
                   )),
             
 
               //history
-              Center(
-                child: Text("History"),
-              ),
+              RiwayatKonversi(listViewItem: listViewItem),
             ],
           ),
         ),
       ),
     );
-  }
-
-  void dropdownOnChanged(String changeValue) {
-    setState(() {
-      _newValue = changeValue;
-    });
   }
 }
